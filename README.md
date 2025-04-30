@@ -33,7 +33,12 @@ enum RolesEnum: string
 
 $role = RolesEnum::ADMIN->value;
 $label = RolesEnum::ADMIN->label();
-$casts = RolesEnum::casts();
+
+$roles = RolesEnum::cases();
+
+foreach (RolesEnum::cases() as $item) {
+    Role::create(['name' => $item->value, 'guard_name' => 'web']);
+}
 
 // Invalid data throws error
 $role = RolesEnum::from('admin');
