@@ -26,6 +26,15 @@ enum RolesEnum: string
 }
 ```
 
+## Use
+
+```php
+<?php
+
+$role = RolesEnum::ADMIN->value;
+$casts = RolesEnum::casts();
+```
+
 ## Casts
 
 ```php
