@@ -32,7 +32,20 @@ enum RolesEnum: string
 <?php
 
 $role = RolesEnum::ADMIN->value;
+$label = RolesEnum::ADMIN->label();
 $casts = RolesEnum::casts();
+
+// Invalid data throws error
+$role = RolesEnum::from('admin');
+
+var_dump($role); // enum(RolesEnum::ADMIN)
+echo $role->name; // "ADMIN";
+echo $role->value; // "admin"
+
+// Invalid data return null
+$role = RolesEnum::tryFrom('not-existing');
+
+var_dump($role); // null
 ```
 
 ## Casts
